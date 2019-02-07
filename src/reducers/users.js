@@ -1,11 +1,11 @@
 const initialState = [
   {
     name: "Karen",
-    groups: [{ id: 1 }, { id: 2 }]
+    groups: [{ id: 1 }]
   },
   {
     name: "Andres",
-    groups: [{ id: 1 }, { id: 2 }]
+    groups: [{ id: 1 }]
   }
 ];
 

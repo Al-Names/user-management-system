@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-
+import { Link } from "react-router-dom";
 // import './styles.css';
 
 import { editGroup } from "../../actions/groups";
@@ -67,6 +67,13 @@ class Group extends React.Component {
     const { editedGroup } = this.state;
     return (
       <div>
+        <div>
+          <Link to="/groups" style={{ textDecoration: "none", color: "black" }}>
+            <h3>
+              <i class="fas fa-arrow-left" /> Back to dashboard
+            </h3>
+          </Link>
+        </div>
         <h2>Group: {group.name}</h2>
         <label>Name: {group.name} </label>
         <hr />

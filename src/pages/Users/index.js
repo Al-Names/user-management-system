@@ -36,20 +36,6 @@ class UsersPage extends Component {
                     <h2 className="text-center">
                       <i class="fas fa-user" /> {user.name}
                     </h2>
-
-                    {/* <ul>
-                    {user.groups.map((group, i) => (
-                      <li key={i}>
-                        {groups.find(grp => grp.id === group.id).name}
-                      </li>
-                    ))}
-                  </ul> */}
-
-                    {/* <Button
-                      className={"remove-button"}
-                      icon={"trash-o"}
-                      onClick={() => this.props.deleteUser(user)}
-                    /> */}
                   </div>
                 </Link>
               ))}
