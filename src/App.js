@@ -13,6 +13,7 @@ import GroupsPage from "./pages/Groups";
 
 import User from "./pages/User";
 import CreateUser from "./pages/CreateUser";
+import Group from "./pages/Group";
 
 class App extends Component {
   render() {
@@ -28,6 +29,7 @@ class App extends Component {
                   <Route exact path="/groups" component={GroupsPage} />
                   <Route exact path="/users/:name" component={User} />
                   <Route exact path="/users/create" component={CreateUser} />
+                  <Route path="/groups/:id" component={Group} />
                 </Switch>
               </div>
             </div>

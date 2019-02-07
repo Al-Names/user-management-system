@@ -16,8 +16,8 @@ class User extends React.Component {
   }
 
   getUser = name => {
-    const { users } = this.props;
-    return users.filter(user => user.name === name);
+    const { user } = this.props;
+    return user.filter(user => user.name === name);
   };
 
   handleChangeUserInput = e => {
