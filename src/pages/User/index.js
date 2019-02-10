@@ -104,7 +104,7 @@ class User extends React.Component {
         <div className="userWrapper">
           {
             <div>
-              <h1>{user.name}</h1>
+              <h1>{this.state.user.name}</h1>
 
               <div>
                 <label>
@@ -167,9 +167,7 @@ class User extends React.Component {
                         </div>
                       ) : (
                         <div>
-                          <p>
-                            Sorry... currently there are no groups to assign
-                          </p>
+                          <p>There are currently no groups available</p>
                         </div>
                       )}
                     </div>
@@ -190,6 +188,9 @@ class User extends React.Component {
         </div>
       </div>
     );
+  }
+  shouldComponentUpdate(nextProp, nextState) {
+    return this.state !== nextState;
   }
 }
 

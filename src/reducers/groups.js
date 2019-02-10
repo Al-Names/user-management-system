@@ -2,19 +2,19 @@ const initialState = [{ id: 1, name: "Yordles" }, { id: 2, name: "Meglins" }];
 
 export default function users(state = initialState, action) {
   switch (action.type) {
-    case "ADD_GROUP": {
+    case "CREATE_GROUP": {
       return [...state, action.group];
     }
     case "DELETE_GROUP": {
-      const idx = state.indexOf(action.group);
+      const index = state.indexOf(action.group);
 
-      return [...state.slice(0, idx), ...state.slice(idx + 1)];
+      return [...state.slice(0, index), ...state.slice(index + 1)];
     }
     case "EDIT_GROUP": {
       return [
-        ...state.slice(0, action.idx),
+        ...state.slice(0, action.index),
         action.editedGroup,
-        ...state.slice(action.idx + 1)
+        ...state.slice(action.index + 1)
       ];
     }
     default:

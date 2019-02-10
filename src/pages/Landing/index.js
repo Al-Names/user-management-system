@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import "./styles.css";
 class Landing extends Component {
   render() {
@@ -13,7 +14,7 @@ class Landing extends Component {
               <h1>
                 <i class="far fa-user fa-2x" />
               </h1>
-              <p>3</p>
+
               <h2>Users</h2>
             </div>
           </Link>
@@ -22,7 +23,7 @@ class Landing extends Component {
               <h1>
                 <i class="fas fa-users fa-2x" />
               </h1>
-              <p>3</p>
+
               <h2>Groups</h2>
             </div>
           </Link>
@@ -31,4 +32,5 @@ class Landing extends Component {
     );
   }
 }
-export default Landing;
+
+export default connect()(Landing);

@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import { editGroup } from "../../actions/groups";
 
 class Group extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       editedGroup: {
         id: "",

@@ -1,10 +1,10 @@
 const initialState = [
   {
-    name: "Karen",
+    name: "Tristana",
     groups: [{ id: 1 }]
   },
   {
-    name: "Andres",
+    name: "Heimerdinger",
     groups: [{ id: 1 }]
   }
 ];
@@ -14,7 +14,7 @@ export default function users(state = initialState, action) {
     case "CREATE_USER": {
       return [...state, action.user];
     }
-    case "REMOVE_USER": {
+    case "DELETE_USER": {
       const idx = state.indexOf(action.user);
 
       return [...state.slice(0, idx), ...state.slice(idx + 1)];
