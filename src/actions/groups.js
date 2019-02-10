@@ -3,8 +3,8 @@ export const deleteGroup = group => ({
   group
 });
 
-export const editGroup = (idx, editedGroup) => ({
+export const editGroup = (index, editedGroup) => ({
   type: "EDIT_GROUP",
-  idx,
+  index,
   editedGroup
 });

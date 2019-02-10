@@ -20,42 +20,37 @@ class UsersPage extends Component {
         </div>
         <hr />
         <h1>Users</h1>
-        {users.length !== 0 ? (
-          <div>
-            <div className="card-columns">
-              <Link to="/users/create" style={{ color: "white" }}>
-                <div className="card groupCard">
-                  <h2 className="text-center">
-                    <i class="fas fa-user-plus" /> Add User
-                  </h2>
-                </div>
-              </Link>
-              {users.map((user, i) => (
-                <div className="card groupCard">
-                  <Link to={`/users/${user.name}`} style={{ color: "white" }}>
-                    <div key={i}>
-                      <h2 className="text-center">
-                        <i class="fas fa-user" /> {user.name}
-                      </h2>
-                    </div>
-                  </Link>
 
-                  <p
-                    className="text-danger"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => this.props.deleteUser(user)}
-                  >
-                    Delete this user?
-                  </p>
-                </div>
-              ))}
-            </div>
+        <div>
+          <div className="card-columns">
+            <Link to="/users/create" style={{ color: "white" }}>
+              <div className="card groupCard">
+                <h2 className="text-center">
+                  <i class="fas fa-user-plus" /> Add User
+                </h2>
+              </div>
+            </Link>
+            {users.map((user, i) => (
+              <div className="card groupCard">
+                <Link to={`/users/${user.name}`} style={{ color: "white" }}>
+                  <div key={i}>
+                    <h2 className="text-center">
+                      <i class="fas fa-user" /> {user.name}
+                    </h2>
+                  </div>
+                </Link>
+
+                <p
+                  className="text-danger"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => this.props.deleteUser(user)}
+                >
+                  Delete this user?
+                </p>
+              </div>
+            ))}
           </div>
-        ) : (
-          <div>
-            <p>Sorry... there are no users created</p>
-          </div>
-        )}
+        </div>
       </div>
     );
   }

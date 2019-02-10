@@ -36,7 +36,7 @@ class User extends React.Component {
     return groups.indexOf(group) !== -1;
   };
 
-  doesUserHaveGroup = group => {
+  userIsGrouped = group => {
     const { groups } = this.state.user;
     return !!groups.filter(g => g.id === group.id).length;
   };
@@ -46,21 +46,20 @@ class User extends React.Component {
     if (checked) {
       this.addGroupToUser(group);
     } else {
-      this.removeGroupFromUser(group);
+      this.removeUserFromGroup(group);
     }
   };
 
-  removeGroupFromUser = (group = "") => {
+  removeUserFromGroup = (group = "") => {
     const { groups } = this.state.user;
-    // const idx = groups.indexOf(group.id);
-    const idx = groups.indexOf(groups.find(grp => grp.id === group.id));
+    const index = groups.indexOf(groups.find(grp => grp.id === group.id));
 
-    if (idx !== -1) {
+    if (index !== -1) {
       this.setState(state => ({
         ...state,
         user: {
           ...state.user,
-          groups: [...groups.slice(0, idx), ...groups.slice(idx + 1)]
+          groups: [...groups.slice(0, index), ...groups.slice(index + 1)]
         }
       }));
     }
@@ -82,8 +81,8 @@ class User extends React.Component {
 
   editUser = () => {
     if (this.state.user.name !== "") {
-      const idx = this.props.users.indexOf(this.props.user);
-      this.props.editUser(idx, this.state.user);
+      const index = this.props.users.indexOf(this.props.user);
+      this.props.editUser(index, this.state.user);
       this.props.history.push("/users");
     }
   };
@@ -159,7 +158,7 @@ class User extends React.Component {
                                   onChange={e =>
                                     this.handleGroupChange(e, group)
                                   }
-                                  defaultChecked={this.doesUserHaveGroup(group)}
+                                  defaultChecked={this.userIsGrouped(group)}
                                 />
                               </div>
                             ))}
@@ -207,7 +206,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  editUser: (idx, editedUser) => dispatch(editUser(idx, editedUser))
+  editUser: (index, editedUser) => dispatch(editUser(index, editedUser))
 });
 
 export default connect(

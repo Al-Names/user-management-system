@@ -1,29 +1,19 @@
-const initialState = [
-  {
-    name: "Tristana",
-    groups: [{ id: 1 }]
-  },
-  {
-    name: "Heimerdinger",
-    groups: [{ id: 1 }]
-  }
-];
-
+const initialState = [];
 export default function users(state = initialState, action) {
   switch (action.type) {
     case "CREATE_USER": {
       return [...state, action.user];
     }
     case "DELETE_USER": {
-      const idx = state.indexOf(action.user);
+      const index = state.indexOf(action.user);
 
-      return [...state.slice(0, idx), ...state.slice(idx + 1)];
+      return [...state.slice(0, index), ...state.slice(index + 1)];
     }
     case "EDIT_USER": {
       return [
-        ...state.slice(0, action.idx),
+        ...state.slice(0, action.index),
         action.editedUser,
-        ...state.slice(action.idx + 1)
+        ...state.slice(action.index + 1)
       ];
     }
     default:
